@@ -1,31 +1,20 @@
 body {
   margin: 0;
-  background: #111;
-  color: white;
-  font-family: sans-serif;
-  text-align: center;
+  background: #00ff00; /* クロマキー用 緑 */
   overflow: hidden;
 }
 
-/* 視線の赤丸 */
+h1, p {
+  display: none; /* 文字は配信で邪魔だから消す */
+}
+
 #gazeDot {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: red;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-}
-
-/* カメラ映像を右下に小さく */
-video {
-  position: fixed !important;
-  bottom: 10px;
-  right: 10px;
-  width: 200px !important;
-  border: 2px solid white;
-  border-radius: 8px;
-  z-index: 1000;
 }
