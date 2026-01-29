@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>視線ポインタ実験</title>
+
+<!-- WebGazer 読み込み -->
+<script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+
+<style>
+  body {
+    margin: 0;
+    background: #111;
+    overflow: hidden;
+    cursor: none; /* マウスカーソル消すとそれっぽい */
+  }
+
+  #gazeDot {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: red;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+
+  #info {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-family: sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<div id="gazeDot"></div>
+<div id="info">画面のいろんな場所を見て学習させてね</div>
+
+<script>
+const dot = document.getElementById("gazeDot");
+
+window.onload = async () => {
+  await webgazer
+    .setGazeListener((data) => {
+      if (data == null) return;
+
+      const x = data.x;
+      const y = data.y;
+
+      dot.style.left = x + "px";
+      dot.style.top = y + "px";
+    })
+    .begin();
+
+  webgazer.showVideo(false);
+  webgazer.showPredictionPoints(false);
+};
+</script>
+
+</body>
+</html>
