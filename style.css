@@ -1,18 +1,19 @@
-body {
+html, body {
   margin: 0;
-  background: #ff00ff; /* マゼンタ */
+  padding: 0;
+  background: #000000; /* ← 完全な黒（OBSで抜きやすい） */
   overflow: hidden;
 }
 
-
 #gazeDot {
-  position: absolute;
-  width: 80px;              /* 大きめ */
+  position: fixed;
+  width: 80px;          /* 大きめ */
   height: 80px;
+  margin-left: -40px;   /* 中心を視線に合わせる */
+  margin-top: -40px;
   border-radius: 50%;
   background: rgba(255, 0, 0, 0.35); /* 半透明赤 */
-  border: 2px solid rgba(255,255,255,0.6); /* 見やすい縁 */
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
+  pointer-events: none; /* クリック邪魔しない */
+  backdrop-filter: blur(2px);
+  transition: transform 0.05s linear;
 }
