@@ -1,12 +1,9 @@
 body {
   margin: 0;
-  background: #00ff00; /* クロマキー用 緑 */
+  background: #ff00ff; /* マゼンタ */
   overflow: hidden;
 }
 
-h1, p {
-  display: none; /* 文字は配信で邪魔だから消す */
-}
 
 #gazeDot {
   position: absolute;
